@@ -7,7 +7,7 @@ import { AuthContext } from "../../Contexts/auth";
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-    const {signIn} = useContext(AuthContext)
+    const {signIn, loadingAuth} = useContext(AuthContext)
 
     function HandleSignIn(e){
         e.preventDefault();
@@ -38,7 +38,7 @@ export default function SignIn() {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
-          <button type="submit">Acessar</button>
+          <button type="submit">{loadingAuth ? "Carregando...":"Acessar"}</button>
         </form>
 
         <Link to="/register">Criar uma conta</Link>
